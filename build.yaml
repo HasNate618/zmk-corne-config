@@ -1,5 +1,13 @@
 ---
 include:
+  # Chip-up / upside-down MCU install (try this first)
+  - board: nrfmicro@1.1.0/nrf52840/flipped_zmk
+    shield: corne_left
+  - board: nrfmicro@1.1.0/nrf52840/flipped_zmk
+    shield: corne_right
+  - board: nrfmicro@1.1.0/nrf52840/flipped_zmk
+    shield: settings_reset
+  # Standard chip-down nice!nano orientation
   - board: nice_nano@2.0.0//zmk
     shield: corne_left
   - board: nice_nano@2.0.0//zmk
