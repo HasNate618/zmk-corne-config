@@ -3,8 +3,6 @@
  * Solder a wire from the PCB pin-21 hole (column 0) to nano pin 009 (P0.09).
  */
 
-#include "corne.dtsi"
-
 &kscan0 {
 	col-gpios
 		= <&pro_micro 10 GPIO_ACTIVE_HIGH>
