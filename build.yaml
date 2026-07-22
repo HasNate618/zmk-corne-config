@@ -14,3 +14,7 @@ include:
     shield: corne_right
   - board: nice_nano@2.0.0//zmk
     shield: settings_reset
+  # Standalone right-half test (no split)
+  - board: nice_nano@2.0.0//zmk
+    shield: corne_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=n
