@@ -30,8 +30,8 @@
 			display-name = "Raise";
 			bindings = <
 				&kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6   &kp HOME &kp END &kp PG_UP &kp PG_DN &kp INS &kp DEL
-				&trans &trans &trans &trans &trans &trans   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-				&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &kp VOLU &kp VOLD
+				&trans &trans &trans &trans &trans &trans   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &kp VOLU
+				&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &kp VOLD
 				        &trans &trans &trans   &trans &trans &trans
 			>;
 		};
