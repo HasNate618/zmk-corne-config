@@ -10,8 +10,8 @@
 			display-name = "Default";
 			bindings = <
 				&kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I &kp O &kp P    &kp BSPC
-				&mt LCTRL ESC &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K &kp L &kp SEMI &kp VOLU
-				&kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp VOLD
+				&mt LCTRL ESC &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+				&kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp BSLH
 				        &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
 			>;
 		};
@@ -31,7 +31,7 @@
 			bindings = <
 				&kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6   &kp HOME &kp END &kp PG_UP &kp PG_DN &kp INS &kp DEL
 				&trans &trans &trans &trans &trans &trans   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-				&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &kp VOLU &kp VOLD
 				        &trans &trans &trans   &trans &trans &trans
 			>;
 		};
