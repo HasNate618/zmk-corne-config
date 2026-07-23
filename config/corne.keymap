@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
 	keymap {
@@ -40,7 +41,7 @@
 			display-name = "Mouse";
 			bindings = <
 				&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans &trans   &mkp MK_LEFT &mkp MK_DOWN &mkp MK_UP &mkp MK_RIGHT &mkp MK_BTN1 &mkp MK_BTN2
+				&trans &trans &trans &trans &trans &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp LCLK &mkp RCLK
 				&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
 				        &trans &trans &trans   &trans &trans &trans
 			>;
