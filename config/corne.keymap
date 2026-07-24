@@ -31,8 +31,8 @@
 			display-name = "Raise";
 			bindings = <
 				&kp LS(N1) &kp LS(N2) &kp LS(N3) &kp LS(N4) &kp LS(N5) &kp LS(N6)   &kp HOME &kp END &kp PG_UP &kp PG_DN &kp INS &kp DEL
-				&mt LCTRL LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp LS(MINUS) &kp LS(EQUAL)   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &kp VOLU
-				&trans &trans &trans &trans &trans &trans   &trans &kp C_PREV &kp C_NEXT &kp C_PLAY_PAUSE &trans &kp VOLD
+			&mt LCTRL LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp LS(MINUS) &kp LS(EQUAL)   &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp C_BRI_INC &kp VOLU
+			&trans &trans &trans &trans &trans &trans   &trans &kp C_PREV &kp C_NEXT &kp C_PLAY_PAUSE &kp C_BRI_DEC &kp VOLD
 				        &trans &mo 3 &trans   &trans &trans &trans
 			>;
 		};
@@ -42,7 +42,7 @@
 			bindings = <
 				&trans &trans &trans &trans &trans &trans   &mkp LCLK &mkp RCLK &msc SCRL_UP &msc SCRL_DOWN &trans &trans
 				&trans &trans &trans &trans &trans &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
-				&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+				&mkp MB4 &mkp MB5 &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
 				        &trans &trans &trans   &trans &trans &trans
 			>;
 		};
