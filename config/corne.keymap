@@ -11,7 +11,7 @@
 			#binding-cells = <0>;
 			tapping-term-ms = <3000>;
 			flavor = "hold-preferred";
-			bindings = <&bt BT_CLR_ALL 0 &kp BACKSPACE>;   // tap=backspace, hold 3s=clear all BT bonds
+			bindings = <&bt BT_CLR_ALL &kp BACKSPACE>;   // tap=backspace, hold 3s=clear all BT bonds
 		};
 	};
 
