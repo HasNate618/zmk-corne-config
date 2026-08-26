@@ -10,14 +10,14 @@
 			label = "EMDASH";
 			#binding-cells = <0>;
 			wait-ms = <5>;
-			bindings = <&macro_tap &kp MINUS &kp MINUS &kp MINUS>;   // --- (compose: — if set up)
+			bindings = <&macro_tap &kp PAUSE_BREAK &kp MINUS &kp MINUS &kp MINUS>;   // pause=compose, --- → —
 		};
 		rightarrow: rightarrow {
 			compatible = "zmk,behavior-macro";
 			label = "RIGHTARROW";
 			#binding-cells = <0>;
 			wait-ms = <5>;
-			bindings = <&macro_tap &kp MINUS &kp LS(DOT)>;   // -> (compose: → if set up)
+			bindings = <&macro_tap &kp PAUSE_BREAK &kp MINUS &kp LS(DOT)>;   // pause=compose, -> → →
 		};
 	};
 
