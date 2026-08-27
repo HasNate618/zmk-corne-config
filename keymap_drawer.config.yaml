@@ -1,0 +1,53 @@
+# keymap-drawer config — polished for Corne V3 / nice!nano v2
+# See: https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
+draw_config:
+  dark_mode: "auto" # GitHub light/dark auto-switch
+  n_columns: 1 # stacked layers (fits README width)
+  key_w: 56
+  key_h: 52
+  split_gap: 28
+  outer_pad_w: 24
+  outer_pad_h: 36
+  footer_text: "Corne V3 • nice!nano v2 • 500mAh ×2 • ZMK"
+  style_layer_activators: true
+  svg_extra_style: |
+    text.layer-label { font-weight: 600; font-size: 15px; }
+    rect.held { fill: #ffe8e8; stroke: #e0a0a0; }
+    rect.trans { fill: #eef2f7; stroke: #c0c8d0; stroke-dasharray: 3 3; }
+    @media (prefers-color-scheme: dark) {
+      rect.trans { fill: #2d333b; stroke: #444c56; }
+      rect.held { fill: #442222; stroke: #883333; }
+    }
+
+parse_config:
+  raw_binding_map:
+    "&emdash": "—" # compose --- → —
+    "&rightarrow": "→" # compose -> → →
+    "&mkp LCLK": "LCLK"
+    "&mkp RCLK": "RCLK"
+    "&mkp MB4": "MB4"
+    "&mkp MB5": "MB5"
+    "&mmv MOVE_LEFT": "◀"
+    "&mmv MOVE_DOWN": "▼"
+    "&mmv MOVE_UP": "▲"
+    "&mmv MOVE_RIGHT": "▶"
+    "&msc SCRL_UP": "Scrl ▲"
+    "&msc SCRL_DOWN": "Scrl ▼"
+    "&soft_off": "OFF"
+    "&bt BT_CLR_ALL": "BT CLR"
+    "&bt BT_SEL 0": "BT 0"
+    "&bt BT_SEL 1": "BT 1"
+    "&bt BT_SEL 2": "BT 2"
+    # Show symbols instead of Sft+1 for Lower top row (nicer for README)
+    "&kp LS(N1)": "!"
+    "&kp LS(N2)": "@"
+    "&kp LS(N3)": "#"
+    "&kp LS(N4)": "$"
+    "&kp LS(N5)": "%"
+    "&kp LS(N6)": "^"
+    "&kp LS(N7)": "&"
+    "&kp LS(N8)": "*"
+    "&kp LS(N9)": "("
+    "&kp LS(N0)": ")"
+    "&kp LS(MINUS)": "_"
+    "&kp LS(EQUAL)": "+"

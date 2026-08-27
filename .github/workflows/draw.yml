@@ -1,0 +1,49 @@
+name: Draw keymap
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/corne.keymap"
+      - "keymap_drawer.config.yaml"
+      - ".github/workflows/draw.yml"
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install keymap-drawer
+        run: pip install keymap-drawer
+
+      - name: Parse & draw
+        run: |
+          set -e
+          mkdir -p assets
+          keymap -c keymap_drawer.config.yaml parse -z config/corne.keymap -o /tmp/corne.yaml
+          # polish: blank held keys should show ▽ (matches local render)
+          python3 -c "import pathlib; p=pathlib.Path('/tmp/corne.yaml'); t=p.read_text(); t=t.replace('{type: held}', '{t: \"▽\", type: \"held\"}'); p.write_text(t); print(t.count('held'))"
+          cp /tmp/corne.yaml assets/corne.yaml
+          keymap -c keymap_drawer.config.yaml draw /tmp/corne.yaml -o assets/corne.svg
+          ls -lh assets/
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/corne.svg assets/corne.yaml
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: update keymap visualization [skip ci]"
+          git push
