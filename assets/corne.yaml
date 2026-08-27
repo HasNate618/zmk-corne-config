@@ -42,7 +42,7 @@ layers:
   - SPACE
   - RET
   - Raise
-  - RALT
+  - Raise
   Lower:
   - '!'
   - '@'

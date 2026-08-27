@@ -315,8 +315,9 @@ rect.trans { fill: #eef2f7; stroke: #c0c8d0; stroke-dasharray: 3 3; }
 </a></g>
 <g transform="translate(572, 190)" class="key keypos-41">
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
-<text x="0" y="0" class="key tap">RALT</text>
-</g>
+<a href="#Raise">
+<text x="0" y="0" class="key tap layer-activator">Raise</text>
+</a></g>
 </g>
 </g>
 <g transform="translate(24, 291)" class="layer-Lower">
