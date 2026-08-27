@@ -1,174 +1,174 @@
-layout: { zmk_keyboard: corne }
+layout: {zmk_keyboard: corne}
 layers:
   Default:
-    - TAB
-    - Q
-    - W
-    - E
-    - R
-    - T
-    - Y
-    - U
-    - I
-    - O
-    - P
-    - BSPC
-    - { t: ESC, h: LCTRL }
-    - A
-    - S
-    - D
-    - F
-    - G
-    - H
-    - J
-    - K
-    - L
-    - ;
-    - "'"
-    - LSHFT
-    - Z
-    - X
-    - C
-    - V
-    - B
-    - N
-    - M
-    - ","
-    - .
-    - /
-    - \
-    - LGUI
-    - Lower
-    - SPACE
-    - RET
-    - Raise
-    - RALT
+  - TAB
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - BSPC
+  - {t: ESC, h: LCTRL}
+  - A
+  - S
+  - D
+  - F
+  - G
+  - H
+  - J
+  - K
+  - L
+  - ;
+  - ''''
+  - LSHFT
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - \
+  - LGUI
+  - Lower
+  - SPACE
+  - RET
+  - Raise
+  - RALT
   Lower:
-    - "!"
-    - "@"
-    - "#"
-    - $
-    - "%"
-    - ^
-    - { t: ▽, type: trans }
-    - "7"
-    - "8"
-    - "9"
-    - _
-    - "="
-    - { t: "&", h: LCTRL }
-    - "*"
-    - (
-    - )
-    - _
-    - +
-    - { t: ▽, type: trans }
-    - "4"
-    - "5"
-    - "6"
-    - "-"
-    - +
-    - "`"
-    - "~"
-    - "["
-    - "]"
-    - "{"
-    - "}"
-    - "0"
-    - "1"
-    - "2"
-    - "3"
-    - —
-    - →
-    - { t: ▽, type: trans }
-    - { t: "▽", type: "held" }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - Mouse
-    - { t: ▽, type: trans }
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - {t: ▽, type: trans}
+  - '7'
+  - '8'
+  - '9'
+  - _
+  - '='
+  - {t: '&', h: LCTRL}
+  - '*'
+  - (
+  - )
+  - _
+  - +
+  - {t: ▽, type: trans}
+  - '4'
+  - '5'
+  - '6'
+  - '-'
+  - +
+  - '`'
+  - '~'
+  - '['
+  - ']'
+  - '{'
+  - '}'
+  - '0'
+  - '1'
+  - '2'
+  - '3'
+  - —
+  - →
+  - {t: ▽, type: trans}
+  - {t: "▽", type: "held"}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Mouse
+  - {t: ▽, type: trans}
   Raise:
-    - F7
-    - F8
-    - F9
-    - F10
-    - F11
-    - F12
-    - HOME
-    - END
-    - PG UP
-    - PG DN
-    - INS
-    - DEL
-    - { t: F1, h: LCTRL }
-    - F2
-    - F3
-    - F4
-    - F5
-    - F6
-    - LEFT
-    - DOWN
-    - UP
-    - RIGHT
-    - BRI INC
-    - VOLU
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - MUTE
-    - PLAY PAUSE
-    - PREV
-    - NEXT
-    - BRI DEC
-    - VOLD
-    - { t: ▽, type: trans }
-    - Mouse
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: "▽", type: "held" }
-    - { t: ▽, type: trans }
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - F12
+  - HOME
+  - END
+  - PG UP
+  - PG DN
+  - INS
+  - DEL
+  - {t: F1, h: LCTRL}
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
+  - BRI INC
+  - VOLU
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - MUTE
+  - PLAY PAUSE
+  - PREV
+  - NEXT
+  - BRI DEC
+  - VOLD
+  - {t: ▽, type: trans}
+  - Mouse
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: "▽", type: "held"}
+  - {t: ▽, type: trans}
   Mouse:
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - LCLK
-    - RCLK
-    - Scrl ▲
-    - Scrl ▼
-    - { t: ▽, type: trans }
-    - BT CLR
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - ◀
-    - ▼
-    - ▲
-    - ▶
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - MB4
-    - MB5
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - BT 0
-    - BT 1
-    - BT 2
-    - { t: ▽, type: trans }
-    - "OFF"
-    - { t: ▽, type: trans }
-    - { t: "▽", type: "held" }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: "▽", type: "held" }
-    - { t: ▽, type: trans }
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LCLK
+  - RCLK
+  - Scrl ▲
+  - Scrl ▼
+  - {t: ▽, type: trans}
+  - BT CLR
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ◀
+  - ▼
+  - ▲
+  - ▶
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - MB4
+  - MB5
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - BT 0
+  - BT 1
+  - BT 2
+  - {t: ▽, type: trans}
+  - 'OFF'
+  - {t: ▽, type: trans}
+  - {t: "▽", type: "held"}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: "▽", type: "held"}
+  - {t: ▽, type: trans}
