@@ -346,9 +346,9 @@ rect.trans { fill: #eef2f7; stroke: #c0c8d0; stroke-dasharray: 3 3; }
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
 <text x="0" y="0" class="key tap">^</text>
 </g>
-<g transform="translate(494, 39)" class="key trans keypos-6">
-<rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(494, 39)" class="key keypos-6">
+<rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
+<text x="0" y="0" class="key tap">/</text>
 </g>
 <g transform="translate(546, 32)" class="key keypos-7">
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
@@ -395,9 +395,9 @@ rect.trans { fill: #eef2f7; stroke: #c0c8d0; stroke-dasharray: 3 3; }
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
 <text x="0" y="0" class="key tap">+</text>
 </g>
-<g transform="translate(494, 91)" class="key trans keypos-18">
-<rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(494, 91)" class="key keypos-18">
+<rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
+<text x="0" y="0" class="key tap">.</text>
 </g>
 <g transform="translate(546, 84)" class="key keypos-19">
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
