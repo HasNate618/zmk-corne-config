@@ -25,7 +25,7 @@ layers:
   - L
   - ;
   - ''''
-  - LSHFT
+  - {t: F13, h: LSHIFT}
   - Z
   - X
   - C
@@ -42,7 +42,7 @@ layers:
   - SPACE
   - RET
   - Raise
-  - RALT
+  - {t: F14, h: RALT}
   Lower:
   - '!'
   - '@'

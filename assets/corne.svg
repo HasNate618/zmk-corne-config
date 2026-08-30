@@ -245,7 +245,8 @@ rect.trans { fill: #eef2f7; stroke: #c0c8d0; stroke-dasharray: 3 3; }
 </g>
 <g transform="translate(26, 150)" class="key keypos-24">
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
-<text x="0" y="0" class="key tap">LSHFT</text>
+<text x="0" y="0" class="key tap">F13</text>
+<text x="0" y="22" class="key hold">LSHIFT</text>
 </g>
 <g transform="translate(78, 150)" class="key keypos-25">
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
@@ -315,7 +316,8 @@ rect.trans { fill: #eef2f7; stroke: #c0c8d0; stroke-dasharray: 3 3; }
 </a></g>
 <g transform="translate(572, 190)" class="key keypos-41">
 <rect rx="6" ry="6" x="-24" y="-24" width="48" height="48" class="key"/>
-<text x="0" y="0" class="key tap">RALT</text>
+<text x="0" y="0" class="key tap">F14</text>
+<text x="0" y="22" class="key hold">RALT</text>
 </g>
 </g>
 </g>
