@@ -13,3 +13,12 @@
 		, <&pro_micro 14 GPIO_ACTIVE_HIGH>
 		;
 };
+
+/* Dead P0.31 / pro_micro 21 is shorted to GND - hog as input to avoid pull-up drain */
+&gpio0 {
+	p031_nc {
+		gpio-hog;
+		gpios = <31 GPIO_ACTIVE_HIGH>;
+		input;
+	};
+};
