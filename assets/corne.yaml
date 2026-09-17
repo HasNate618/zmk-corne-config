@@ -94,9 +94,9 @@ layers:
   - F11
   - F12
   - HOME
-  - END
   - PG UP
   - PG DN
+  - END
   - INS
   - DEL
   - {t: F1, h: LCTRL}
