@@ -1,0 +1,142 @@
+#!/usr/bin/env bash
+# flash — pull latest CI firmware (waiting if needed) and flash nice!nano halves.
+#
+# Usage:
+#   ./flash [--side both|left|right] [--order left-first|right-first]
+#           [--reset|--no-reset] [--skip-ci] [--help]
+#
+# Defaults: --side both --order left-first --reset
+#   --reset    : settings_reset UF2 first, then half firmware (needed after role/bond changes)
+#   --no-reset : half firmware only (single-fix flashes, e.g. overlay hog)
+#   --skip-ci  : skip CI check/download, use local firmware/ files
+set -euo pipefail
+
+REPO="HasNate618/zmk-corne-config"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FIRMWARE_DIR="$ROOT/firmware"
+LEFT_UF2="corne_left-nice_nano@2.0.0__zmk-zmk.uf2"
+RIGHT_UF2="corne_right-nice_nano@2.0.0__zmk-zmk.uf2"
+RESET_UF2="settings_reset-nice_nano@2.0.0__zmk-zmk.uf2"
+
+SIDE="both"
+ORDER="left-first"
+DO_RESET=1
+SKIP_CI=0
+
+usage() {
+  sed -n '2,12p' "$0"
+  exit "${1:-0}"
+}
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --side) SIDE="${2:?}"; shift 2 ;;
+    --side=*) SIDE="${1#*=}"; shift ;;
+    --order) ORDER="${2:?}"; shift 2 ;;
+    --order=*) ORDER="${1#*=}"; shift ;;
+    --reset) DO_RESET=1; shift ;;
+    --no-reset) DO_RESET=0; shift ;;
+    --skip-ci|--local) SKIP_CI=1; shift ;;
+    -h|--help) usage 0 ;;
+    *) echo "unknown arg: $1" >&2; usage 2 ;;
+  esac
+done
+
+case "$SIDE" in left|right|both) ;; *) echo "--side must be left|right|both" >&2; exit 2 ;; esac
+case "$ORDER" in left-first|right-first) ;; *) echo "--order must be left-first|right-first" >&2; exit 2 ;; esac
+
+find_mnt() {
+  # $1 = /dev/sdX -> prints mountpoint or empty
+  local dev="${1#/dev/}" mnt=""
+  mnt="$(lsblk -o NAME,MOUNTPOINT -nr 2>/dev/null | awk -v d="$dev" '$1==d {print $2; exit}')"
+  if [ -z "$mnt" ]; then
+    for cand in "/run/media/$USER/NICENANO" "/run/media/nate/NICENANO"; do
+      [ -d "$cand" ] && { mnt="$cand"; break; }
+    done
+  fi
+  printf '%s' "$mnt"
+}
+
+wait_copy() {
+  # $1 = src UF2 path, $2 = human label
+  local src="$1" label="$2" i dev mnt
+  echo ">>> $label: double-tap reset now — waiting for NICENANO..."
+  for i in $(seq 1 150); do
+    dev=$(lsblk -o NAME,LABEL -n 2>/dev/null | awk '$2=="NICENANO"{print "/dev/"$1; exit}')
+    if [ -n "${dev:-}" ]; then
+      echo "found $dev"
+      udisksctl mount -b "$dev" >/dev/null 2>&1 || true
+      mnt="$(find_mnt "$dev")"
+      if [ -n "$mnt" ] && [ -d "$mnt" ]; then
+        echo "copying $(basename "$src") -> $mnt"
+        cp "$src" "$mnt/" && sync
+        echo "OK: $label flashed. Drive will reboot — wait for it to disappear."
+        sleep 5
+        # wait for drive to go away before next step (up to 60s)
+        for _ in $(seq 1 30); do
+          lsblk -o LABEL -n 2>/dev/null | grep -qx "NICENANO" || break
+          sleep 2
+        done
+        return 0
+      fi
+    fi
+    sleep 2
+  done
+  echo "Timed out waiting for NICENANO ($label)" >&2
+  return 1
+}
+
+if [ "$SKIP_CI" -eq 0 ]; then
+  echo "=== CI: latest run ==="
+  read -r RUN_ID RUN_STATUS RUN_CONC < <(gh run list --repo "$REPO" --limit 1 \
+    --json databaseId,status,conclusion -q '.[0] | "\(.databaseId) \(.status) \(.conclusion)"')
+  echo "run $RUN_ID ($RUN_STATUS ${RUN_CONC:-})"
+  if [ "$RUN_STATUS" != "completed" ]; then
+    echo "waiting for run $RUN_ID..."
+    gh run watch "$RUN_ID" --repo "$REPO" --exit-status --interval 15
+  fi
+  CONC="$(gh run view "$RUN_ID" --repo "$REPO" --json conclusion -q '.conclusion')"
+  if [ "$CONC" != "success" ]; then
+    echo "latest run $RUN_ID concluded: $CONC — aborting" >&2
+    exit 1
+  fi
+  echo "=== downloading firmware artifact ==="
+  TMPD="$(mktemp -d)"
+  trap 'rm -rf "$TMPD"' EXIT
+  gh run download "$RUN_ID" --repo "$REPO" --name firmware -D "$TMPD"
+  cp "$TMPD/$LEFT_UF2" "$TMPD/$RIGHT_UF2" "$FIRMWARE_DIR/"
+  echo "updated: $LEFT_UF2 $RIGHT_UF2"
+else
+  echo "=== skipping CI, using local firmware/ ==="
+fi
+
+for f in "$FIRMWARE_DIR/$LEFT_UF2" "$FIRMWARE_DIR/$RIGHT_UF2" "$FIRMWARE_DIR/$RESET_UF2"; do
+  [ -f "$f" ] || { echo "missing: $f" >&2; exit 1; }
+done
+ls -lh "$FIRMWARE_DIR/$LEFT_UF2" "$FIRMWARE_DIR/$RIGHT_UF2" | awk '{print $9, $5}'
+
+flash_half() {
+  # $1 = left|right
+  local half="$1" fw
+  if [ "$half" = "left" ]; then fw="$FIRMWARE_DIR/$LEFT_UF2"; else fw="$FIRMWARE_DIR/$RIGHT_UF2"; fi
+  local name
+  name="$(echo "$half" | tr 'a-z' 'A-Z')"
+  if [ "$DO_RESET" -eq 1 ]; then
+    wait_copy "$FIRMWARE_DIR/$RESET_UF2" "$name settings_reset"
+  fi
+  wait_copy "$fw" "$name $(basename "$fw")"
+}
+
+case "$SIDE" in
+  left) flash_half left ;;
+  right) flash_half right ;;
+  both)
+    if [ "$ORDER" = "left-first" ]; then
+      flash_half left; flash_half right
+    else
+      flash_half right; flash_half left
+    fi
+    ;;
+esac
+
+echo "DONE. Unplug USB, power both halves on together (~10s to bond)."
