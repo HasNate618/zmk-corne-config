@@ -94,8 +94,8 @@ layers:
   - F11
   - F12
   - HOME
-  - PG UP
   - PG DN
+  - PG UP
   - END
   - INS
   - DEL
@@ -137,9 +137,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - LCLK
-  - RCLK
-  - Scrl ▲
   - Scrl ▼
+  - Scrl ▲
+  - '&mkp RCL K'
   - {t: ▽, type: trans}
   - BT CLR
   - {t: ▽, type: trans}
