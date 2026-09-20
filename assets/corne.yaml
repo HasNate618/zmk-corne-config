@@ -139,7 +139,7 @@ layers:
   - LCLK
   - Scrl ▼
   - Scrl ▲
-  - '&mkp RCL K'
+  - RCLK
   - {t: ▽, type: trans}
   - BT CLR
   - {t: ▽, type: trans}
