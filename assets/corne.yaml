@@ -144,9 +144,9 @@ layers:
   - BT CLR
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp MB3'
+  - RCLK
+  - LCLK
   - {t: ▽, type: trans}
   - ◀
   - ▼
